@@ -4,15 +4,15 @@ const prompt = require('prompt-sync')();
 
 
 function playerInput() {
-    const playerInput = prompt("Choose your move! Rock, Paper, or Scissors?")
+    const playerInput = prompt("Choose your move! Rock, Paper, or Scissors? ")
     return playerInput.toLowerCase();
 }
-console.log(playerInput());
 
 
 // randomly returns 'Rock' 'Paper' or 'Scissors'
 function computerPlay() {
-    switch (Math.floor(Math.random() * 3)) {
+    let computerSelection = Math.floor(Math.random() * 3);
+    switch (computerSelection) {
         case 0:
             return 'rock';
             break;
@@ -24,7 +24,7 @@ function computerPlay() {
             break;
     };
 }
-console.log(computerPlay());
+
 
 
 
@@ -33,6 +33,12 @@ console.log(computerPlay());
 // "You Lose! Paper beats Rock"
 // return the results of this function call
 function playRound(playerSelection, computerSelection) {
+    // ! console.logs have to be here to get the text info
+    // ! your previous console.logs at lines 10 and lines 27 were calling the functions outside of your playRound function
+    // ! so you were running both playerSelection and computerSelection by themselves first, and
+    // ! then running the playRound function next, which then called playerSelection and computerSelection again
+    console.log(`Player Selection: ${playerSelection}`);
+    console.log(`Computer Selection: ${computerSelection}`);
     // Rock choice
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         return "You lose! Paper beats rock."
@@ -61,6 +67,7 @@ function playRound(playerSelection, computerSelection) {
         return "Something went wrong";
     }
 }
+
 const playerSelection = playerInput();
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));

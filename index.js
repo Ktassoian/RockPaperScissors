@@ -1,13 +1,11 @@
-
-
 const prompt = require('prompt-sync')();
 
 
 function playerInput() {
-    const playerInput = prompt("Choose your move! Rock, Paper, or Scissors?")
+    const playerInput = prompt("Choose your move! Rock, Paper, or Scissors? ")
     return playerInput.toLowerCase();
 }
-console.log(playerInput());
+// console.log(playerInput());
 
 
 // randomly returns 'Rock' 'Paper' or 'Scissors'
@@ -24,7 +22,7 @@ function computerPlay() {
             break;
     };
 }
-console.log(computerPlay());
+// console.log(computerPlay());
 
 
 
@@ -32,7 +30,10 @@ console.log(computerPlay());
 // return a string that declares the winner 
 // "You Lose! Paper beats Rock"
 // return the results of this function call
+
 function playRound(playerSelection, computerSelection) {
+    console.log(`PlayerSelection: ${playerSelection}`);
+    console.log(`Computer Selection: ${computerSelection}`);
     // Rock choice
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         return "You lose! Paper beats rock."
@@ -61,6 +62,13 @@ function playRound(playerSelection, computerSelection) {
         return "Something went wrong";
     }
 }
+
+
+
+
+
+
 const playerSelection = playerInput();
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
